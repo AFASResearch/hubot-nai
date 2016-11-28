@@ -20,6 +20,7 @@
     "typescript": "2.0.10",
     "@types/onoff": "0.0.27",
     "firebase": "3.5.2",
-    "onoff": "1.1.1"
+    "onoff": "1.1.1",
+    "mcp-spi-adc": "0.3.1"
   }
 }
