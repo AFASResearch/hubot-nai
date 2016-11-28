@@ -1,6 +1,8 @@
+let temperature = require('./temperature');
+
 module.exports = function(robot) {
 
-  robot.hear(/temperature/i, (res) => {
-    res.send('Not sure yet what the temperature is right now');
+  robot.hear(/(temperature)|(temperatuur)|(warm)|(koud)|(heet)/i, (res) => {
+    res.send('Het is nu ' + (Math.round(temperature.getTemperature() * 100) / 100) + '°C');
   })
 }

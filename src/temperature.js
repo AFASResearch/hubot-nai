@@ -1,4 +1,18 @@
-var mcpadc = require('mcp-spi-adc');
+var mcpadc;
+try {
+  mcpadc = require('mcp-spi-adc');
+} catch(e) {
+  mcpadc = {
+    open: function(channel, config, callback) {
+      callback();
+      return {
+        read: function(callback2) {
+          callback2(undefined, {value: 0.49 / 3.3});
+        }
+      }
+    }
+  }
+}
 
 var currentTemperature;
 
