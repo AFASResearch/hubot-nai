@@ -20,5 +20,8 @@
     "firebase": "3.5.2",
     "onoff": "1.1.1",
     "mcp-spi-adc": "0.3.1"
+  },
+  "dependencies": {
+    "node-fetch": "1.6.3"
   }
 }
