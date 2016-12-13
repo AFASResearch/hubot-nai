@@ -1,5 +1,6 @@
 var temperature = require('./temperature');
 var fetch = require('node-fetch');
+var dotw = require('./dotw');
 
 module.exports = function(robot) {
 
@@ -65,4 +66,5 @@ module.exports = function(robot) {
       reportError(err);
     });
   })
+  dotw.test(robot);
 };

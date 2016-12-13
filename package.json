@@ -22,6 +22,7 @@
     "mcp-spi-adc": "0.3.1"
   },
   "dependencies": {
-    "node-fetch": "1.6.3"
+    "node-fetch": "1.6.3",
+    "node-cron": "1.1.2"
   }
 }
