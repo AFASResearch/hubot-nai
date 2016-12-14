@@ -49,6 +49,14 @@ module.exports = function(robot) {
   };
   updateInterval();
 
+  robot.respond(/publish temperature/i, function(res) {
+    if (temperaturePublish.seconds > 0) {
+      res.send('Publishing the temperature for room ' + temperaturePublish.room + ' every ' + temperaturePublish.seconds + ' seconds');
+    } else {
+      res.send('Not publishing the temperature');
+    }
+  });
+
   robot.respond(/publish temperature for room (\w*) every (\d*) seconds/i, function(res) {
     temperaturePublish = {
       seconds: parseInt(res.match[2]),
