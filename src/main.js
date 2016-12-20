@@ -63,6 +63,7 @@ module.exports = function(robot) {
       room: res.match[1]
     };
     robot.brain.set('temperature-publish', temperaturePublish);
+    robot.brain.save();
     updateInterval().then(function(result){
       if (result) {
         res.send('Temperature publish successful, interval started ' + result);
