@@ -1,4 +1,5 @@
 var temperature = require('./temperature');
+var lights = require('./lights');
 var fetch = require('node-fetch');
 var dotw = require('./dotw');
 
@@ -48,6 +49,17 @@ module.exports = function(robot) {
     return Promise.resolve(undefined);
   };
   updateInterval();
+
+  robot.respond(/alarm off/i, function(res) {
+    lights.clearAlarm();
+    res.send('We hebben het overleefd');
+  });
+
+  robot.respond(/alarm (\d+)/i, function(res) {
+    var interval = parseInt(res.match[1]);
+    lights.setAlarm(interval);
+    res.send('PANIEK! :scream:');
+  });
 
   robot.respond(/publish temperature/i, function(res) {
     if (temperaturePublish.seconds > 0) {
