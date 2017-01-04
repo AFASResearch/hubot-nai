@@ -1,7 +1,7 @@
 var Gpio = require('onoff').Gpio;
 
-var leftEar = new Gpio(0, 'out');
-var rightEar = new Gpio(1, 'out');
+var leftEar = new Gpio(17 /*0*/, 'out');
+var rightEar = new Gpio(18 /*1*/, 'out');
 
 var alarmInterval = undefined;
 var currentEar = leftEar;
@@ -17,6 +17,8 @@ var step = function() {
   currentEar = currentEar === leftEar ? rightEar : leftEar;
   currentEar.write(1);
 }
+
+rest();
 
 module.exports = {
 
